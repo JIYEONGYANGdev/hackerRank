@@ -20,26 +20,26 @@ The second line contains n space-separated integers, each an a[i].
 // left rotaion 후 update된 array 반환
 
 function rotLeft(a, d) {
-  // d_index - a < 0
+  // a_index - d < 0
   let result = [];
-  for (let i = 0; i < d.length; i++) {
-    if (i < a) {
-      result[d.length-Math.abs(i-a)] = d[i]
+  for (let i = 0; i < a.length; i++) {
+    if (i < d) {
+      result[a.length-Math.abs(i-d)] = a[i]
     }
     else {
-      result[i - a] = d[i];
+      result[i - d] = a[i];
     }
   }
   return result;
 }
 
-console.log(rotLeft( 4,
-  [1, 2, 3, 4, 5])); // [5, 1, 2, 3, 4]
+console.log(rotLeft(
+  [1, 2, 3, 4, 5], 4)); // [5, 1, 2, 3, 4]
 
-console.log(rotLeft(10,
-  [41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51]));
+console.log(rotLeft(
+  [41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51], 10));
 // 77 97 58 1 86 58 26 10 86 51 41 73 89 7 10 1 59 58 84 77
 
-console.log(rotLeft(13,
-  [33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97]));
+console.log(rotLeft(
+  [33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97], 13));
 //87 97 33 47 70 37 8 53 13 93 71 72 51 100 60
